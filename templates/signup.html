@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Registration Form in HTML CSS</title>
+    <link rel="stylesheet" href="{% static 'css/signup.css' %}">
+</head>
+<body>
+    <button id="openModalBtn">Open Registration Form</button>
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <section class="container">
+                <header>Sign up</header>
+                <form action="#" class="form">
+                    <div class="input-box">
+                        <label>Name</label>
+                        <input type="text" placeholder="Name" required />
+                    </div>
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Email Address</label>
+                            <input type="text" placeholder="Enter email address" required />
+                        </div>
+                        <div class="input-box">
+                            <button type="button" onclick="sendOTP()">Send OTP</button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Verify Email with OTP</label>
+                            <input type="number" name="otp" placeholder="Enter OTP sent to your email" required />
+                        </div>
+                        <div class="input-box">
+                            <button type="button" onclick="sendOTP()">Verify OTP</button>
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Password</label>
+                            <input type="password" placeholder="Create your password" required />
+                        </div>
+                        <div class="input-box">
+                            <label>Confirm password</label>
+                            <input type="password" placeholder="Re-Enter your password" required />
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="input-box">
+                            <label>Phone Number</label>
+                            <input type="number" placeholder="Enter phone number" required />
+                        </div>
+                        <div class="input-box">
+                            <label>Address</label>
+                            <input type="text" placeholder="Enter street address" required />
+                        </div>
+                    </div>
+                    <div class="input-box address">
+                        <div class="column">
+                            <div class="select-box">
+                                <select>
+                                    <option hidden>Country</option>
+                                    <option>America</option>
+                                    <option>Japan</option>
+                                    <option>India</option>
+                                    <option>Nepal</option>
+                                </select>
+                            </div>
+                            <input type="text" placeholder="Enter your state" required />
+                        </div>
+                        <div class="column">
+                            <input type="text" placeholder="Enter your district" required />
+                            <input type="number" placeholder="Enter your taluk" required />
+                        </div>
+                    </div>
+                    <div class="column">
+                        <div class="input-box">
+                            <input type="number" placeholder="Enter postal code" required />
+                        </div>
+                        <button>Submit</button>
+                    </div>
+                </form>
+                <div class="sign-txt">Already member? <a href="/login">Login now</a></div>
+            </section>
+        </div>
+    </div>
+    <script src="{% static 'js/signup.js' %}"></script>
+</body>
+</html>
