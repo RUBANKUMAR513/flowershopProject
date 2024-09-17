@@ -417,10 +417,11 @@
       <span class="close">&times;</span>
       <div class="wrapper">
         <header>Login</header>
-        <form class="form" action="#">
+        <form class="form" id="login-form">
+          {% csrf_token %}
           <div class="field email">
             <div class="input-area">
-              <input type="text" placeholder="Email Address">
+              <input type="text" id="emailId" placeholder="Email Address" required>
               <i class="icon fas fa-envelope"></i>
               <i class="error error-icon fas fa-exclamation-circle"></i>
             </div>
@@ -428,14 +429,14 @@
           </div>
           <div class="field password">
             <div class="input-area">
-              <input type="password" placeholder="Password">
+              <input type="password" id="password" placeholder="Password" required>
               <i class="icon fas fa-lock"></i>
               <i class="error error-icon fas fa-exclamation-circle"></i>
             </div>
             <div class="error error-txt">Password can't be blank</div>
           </div>
           <div class="pass-txt"><a href="#">Forgot password?</a></div>
-          <input type="submit" value="Login">
+          <button type="submit">Login</button>
         </form>
         <div class="sign-txt">Not yet member? <a href="/signup">Signup now</a></div>
       </div>

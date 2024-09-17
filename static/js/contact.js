@@ -8,7 +8,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     const message = document.getElementById('message').value;
     console.log(name,message,email,phone)
     // Send AJAX request using fetch
-    fetch('store/submit-form/', {
+    fetch('/store/submit-form/', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/x-www-form-urlencoded',
@@ -42,44 +42,3 @@ function getCookie(name) {
     }
     return cookieValue;
 }
-
-document.getElementById("login-form").addEventListener("submit", function(e) {
-    e.preventDefault();  // Prevent form from submitting the default way
-
-    const email = document.getElementById("emailId").value;
-    const password = document.getElementById("password").value;
-    console.log("Email:", email);
-    console.log("Password:", password);
-
-    // Get CSRF token from the cookie
-    const csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
-    console.log("CSRF Token:", csrftoken);
-
-    fetch('/Userauth/UserLogin/', {
-        method: 'POST',
-        headers: {
-            'Content-Type': 'application/json',
-            'X-CSRFToken': csrftoken
-        },
-        body: JSON.stringify({
-            username: email,
-            password: password
-        })
-    })
-    .then(response => {
-        console.log("Response Status:", response.status); // Log the status code
-        return response.json();
-    })
-    .then(data => {
-        console.log("Response Data:", data); // Log the response data
-        if (data.success) {
-            alert("Login successful");
-            // Redirect or update UI
-        } else {
-            alert("Login failed: " + data.message);
-        }
-    })
-    .catch(error => {
-        console.error('Error:', error);
-    });
-});
